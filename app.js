@@ -6,7 +6,22 @@
 
 app = angular.module('myApp', []);
 
-app.controller('MainCtrl', ['$scope', function($scope) {
+app.controller('MainCtrl', ['$scope', 'movieDataFactory', function($scope, movieDataFactory) {
+
+  $scope.the_list = movieDataFactory;
+
+}]);
+
+
+// Animate in the movies when the page loads
+$(document).ready(function () {
+  $('.movie-tile').hide().first().show("fast", function showNext() {
+    $(this).next("div").show("fast", showNext);
+  });
+});
+
+
+app.factory('movieDataFactory', function(){
 
   function Movie(title, story_line, poster_image, trailer_youtube_url, imdb, itunes, amazon) {
     this.title = title;
@@ -17,7 +32,6 @@ app.controller('MainCtrl', ['$scope', function($scope) {
     this.itunes = itunes;
     this.amazon = amazon;
   }
-
 
   toy_story = new Movie('Toy Story',
     'A story of a boy and his toys that come to life',
@@ -67,36 +81,8 @@ app.controller('MainCtrl', ['$scope', function($scope) {
     '',
     '');
 
-
-  $scope.the_list = [the_great_dictator, avatar, toy_story, manos, gigli, the_danish_poet];
-
-  //fresh_tomatoes.open_movies_page(the_list);
+  var the_list = [the_great_dictator, avatar, toy_story, manos, gigli, the_danish_poet];
 
 
-
-
-
-
-
-
-    // Pause the video when the modal is closed
-
-  // Start playing the video whenever the trailer modal is opened
-  $(document).on('click', '.movie-tile', function (event) {
-    var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
-    var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
-    $("#trailer-video-container").empty().append($("<iframe></iframe>", {
-      'id': 'trailer-video',
-      'type': 'text-html',
-      'src': sourceUrl,
-      'frameborder': 0
-    }));
-
-  });
-  // Animate in the movies when the page loads
-  $(document).ready(function () {
-    $('.movie-tile').hide().first().show("fast", function showNext() {
-      $(this).next("div").show("fast", showNext);
-    });
-  });
-}]);
+  return the_list;
+});
