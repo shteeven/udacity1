@@ -1,26 +1,6 @@
 /**
- * Created by Shtav on 5/16/15.
+ * Created by Shtav on 5/25/15.
  */
-
-
-
-app = angular.module('myApp', []);
-
-app.controller('MainCtrl', ['$scope', 'movieDataFactory', function($scope, movieDataFactory) {
-
-  $scope.the_list = movieDataFactory;
-
-}]);
-
-
-// Animate in the movies when the page loads
-$(document).ready(function () {
-  $('.movie-tile').hide().first().show("fast", function showNext() {
-    $(this).next("div").show("fast", showNext);
-  });
-});
-
-
 app.factory('movieDataFactory', function(){
 
   function Movie(title, story_line, poster_image, trailer_youtube_url, imdb, itunes, amazon) {
@@ -38,14 +18,6 @@ app.factory('movieDataFactory', function(){
     'http://www.rotoscopers.com/wp-content/uploads/2013/10/Toy-Story-Poster.jpg',
     'https://youtu.be/KYz2wyBy3kc',
     'http://www.imdb.com/title/tt0114709/',
-    '',
-    '');
-
-  avatar = new Movie('Avatar',
-    'A man is sent to live with alien creatures through an avatar',
-    'http://cafmp.com/wp-content/uploads/2012/11/French-Avatar-Poster',
-    'https://youtu.be/5PSNL1qE6VY',
-    'http://www.imdb.com/title/tt0499549/',
     '',
     '');
 
@@ -81,8 +53,13 @@ app.factory('movieDataFactory', function(){
     '',
     '');
 
-  var the_list = [the_great_dictator, avatar, toy_story, manos, gigli, the_danish_poet];
+  avatar = new Movie('Avatar',
+    'A man is sent to live with alien creatures through an avatar',
+    'http://cafmp.com/wp-content/uploads/2012/11/French-Avatar-Poster',
+    'https://youtu.be/5PSNL1qE6VY',
+    'http://www.imdb.com/title/tt0499549/',
+    '',
+    '');
 
-
-  return the_list;
+  return [the_great_dictator, avatar, toy_story, manos, gigli, the_danish_poet];
 });

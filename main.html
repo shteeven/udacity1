@@ -7,14 +7,16 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
 
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/modal.css">
 </head>
 
 <body ng-app="myApp" ng-controller="MainCtrl">
 <!-- Trailer Video Modal -->
-<trailer-modal></trailer-modal>
 
-<!-- Main Page Content -->
+<!-- End Trailer Modal -->
+
+<!-- Page Header -->
 <div class="container">
   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
@@ -24,28 +26,30 @@
     </div>
   </div>
 </div>
+<!-- End Page Header -->
 
-<div class="container">
-  <div ng-repeat="movie in the_list" sourceUrl="movie.trailer_youtube_url" class="col-md-4 col-sm-6 col-xs-12 movie-tile text-center">
-    <img ng-src="{{movie.poster_image_url}}" width="220" height="342">
+<!-- Main Page Content -->
+<div class="container ng-cloak">
+  <div ng-click="openModal(movie)"
+       ng-repeat="movie in movies"
+       class="col-md-4 col-sm-6 col-xs-12 movie-tile"
+       ng-class="{'unrevealed': moviesRevealed < $index}">
+    <img ng-src="{{movie.poster_image_url}}">
     <h2>{{movie.title}}</h2>
+
   </div>
 </div>
-
-
-
-
-
-
-
-
-
+<!-- End Main Page Content -->
 
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src="http://code.angularjs.org/1.2.9/angular-animate.min.js"></script>
 <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="app.js"></script>
-<script src="directives.js"></script>
+<script src="js/ui-bootstrap-tpls-0.13.0.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/directives.js"></script>
+<script src="js/services.js"></script>
+
 
 </body>
 </html>
