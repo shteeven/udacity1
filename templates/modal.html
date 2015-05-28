@@ -1,3 +1,34 @@
 
-<iframe src="https://www.youtube.com/embed/loFtozxZG0s" frameborder="0" allowfullscreen></iframe>
+<!--<div class="row">
+  <iframe class="col-sm-9" src="https://www.youtube.com/embed/loFtozxZG0s" frameborder="0" allowfullscreen></iframe>
+  <div class="col-sm-3 col-xs-12">
+    <div class="social">
+      <a class="facebook" href="https://www.facebook.com/">
+        <i class="fa fa-facebook fa-4x col-xs-4"></i>
+        <span class="col-xs-8"> Facebook</span>
+      </a>
+      <a class="twitter" href="https://www.twitter.com/">
+        <i class="fa fa-twitter fa-4x col-xs-4"></i>
+        <span class="col-xs-8"> Twitter</span>
+      </a>
+      <a class="instagram" href="https://www.instagram.com/">
+        <i class="fa fa-instagram fa-4x col-xs-4"></i>
+        <span class="col-xs-8"> Instagram</span>
+      </a>
+      <a class="google-plus" href="https://plus.google.com/">
+        <i class="fa fa-google-plus fa-4x col-xs-4"></i>
+        <span class="col-xs-8"> Google+</span>
+      </a>
+    </div>
+  </div>
+</div>-->
 
+<style>
+  .embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; }
+  .embed-container iframe,
+  .embed-container object,
+  .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+</style>
+<div class='embed-container'>
+  <iframe src='http://www.youtube.com/embed/{{movie.trailer_youtube_url}}?autoplay=1&html5=1' frameborder='0' allowfullscreen></iframe>
+</div>

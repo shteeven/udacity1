@@ -1,7 +1,7 @@
 /**
  * Created by Shtav on 5/25/15.
  */
-app.factory('movieDataFactory', function(){
+app.factory('movieDataFactory', function($http){
 
   function Movie(title, story_line, poster_image, trailer_youtube_url, imdb, itunes, amazon) {
     this.title = title;
@@ -61,5 +61,13 @@ app.factory('movieDataFactory', function(){
     '',
     '');
 
-  return [the_great_dictator, avatar, toy_story, manos, gigli, the_danish_poet];
+
+
+  //return [the_great_dictator, avatar, toy_story, manos, gigli, the_danish_poet];
+
+
+
+
+  return $http.get('movies/processed_data.json');
+
 });

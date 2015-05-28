@@ -5,12 +5,65 @@
     height: 100%;
     width: 100%;
 }
+.modal-content .row {
+    height: 100%;
+}
 .modal-content iframe {
     box-shadow: none;
-    height: 315px;
-    width: 560px;
+    height: 100%;
+}
+.modal-content>.row>* {
+    padding: 0;
 }
 .modal-dialog {
     height: 315px;
     width: 660px;
+}
+
+
+.social {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.social a {
+    display: table;
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+    color: #ffffff;
+}
+.social span {
+    font-size: 2em;
+    text-align: center;
+}
+.social .facebook {
+    background-color: rgb(51, 79, 136);
+}
+.social .facebook:hover {
+     color: rgb(51, 79, 136);
+     background-color: white;
+ }
+
+.social .twitter {
+    background-color: rgb(0, 155, 203);
+}
+.social .twitter:hover {
+     color: rgb(0, 155, 203);
+     background-color: white;
+ }
+
+.social .instagram {
+    background-color: rgb(163, 116, 90);
+}
+.social .instagram:hover {
+     color: rgb(163, 116, 90);
+     background-color: white;
+}
+
+.social .google-plus {
+    background-color: rgb(206, 64, 48);
+}
+.social .google-plus:hover {
+     color: rgb(206, 64, 48);
+     background-color: white;
 }
