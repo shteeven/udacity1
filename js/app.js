@@ -12,8 +12,6 @@ app.controller('MainCtrl', ['$scope', 'movieDataFactory', '$interval', '$modal',
     $scope.movies = data;
   });
 
-  console.log($scope.movies);
-
   $scope.moviesRevealed = -1;
   function revealMovie(){
     $scope.moviesRevealed++;
@@ -23,7 +21,6 @@ app.controller('MainCtrl', ['$scope', 'movieDataFactory', '$interval', '$modal',
   }
   var revealMovieInterval = $interval(revealMovie, 300);
 
-
   function openModal(movie) {
     var modalInstance = $modal.open({
       templateUrl: 'templates/modal.html',
@@ -32,7 +29,8 @@ app.controller('MainCtrl', ['$scope', 'movieDataFactory', '$interval', '$modal',
         movie: function () {
           return movie;
         }
-      }
+      },
+      size: 'lg'
     });
     modalInstance.result.then( function () {
       console.log('Modal dismissed at: ' + new Date());
@@ -42,17 +40,18 @@ app.controller('MainCtrl', ['$scope', 'movieDataFactory', '$interval', '$modal',
 
 }]);
 
-app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, movie) {
+app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, movie, $sce, $window) {
 
   $scope.movie = movie;
+  $scope.url = $sce.trustAsResourceUrl('http://www.youtube.com/embed/' + movie.trailer_youtube_id + '?autoplay=1&html5=1');
 
+  $scope.ok = function () { $modalInstance.close(); };
 
-  $scope.ok = function () {
-    $modalInstance.close();
+  $scope.cancel = function () { $modalInstance.dismiss('cancel'); };
+
+  $scope.redirectTo = function(url){
+    $window.open(url, '_blank');
   };
 
-  $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
-  };
 });
 

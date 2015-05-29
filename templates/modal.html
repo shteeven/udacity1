@@ -1,34 +1,52 @@
-
-<!--<div class="row">
-  <iframe class="col-sm-9" src="https://www.youtube.com/embed/loFtozxZG0s" frameborder="0" allowfullscreen></iframe>
-  <div class="col-sm-3 col-xs-12">
-    <div class="social">
-      <a class="facebook" href="https://www.facebook.com/">
-        <i class="fa fa-facebook fa-4x col-xs-4"></i>
-        <span class="col-xs-8"> Facebook</span>
-      </a>
-      <a class="twitter" href="https://www.twitter.com/">
-        <i class="fa fa-twitter fa-4x col-xs-4"></i>
-        <span class="col-xs-8"> Twitter</span>
-      </a>
-      <a class="instagram" href="https://www.instagram.com/">
-        <i class="fa fa-instagram fa-4x col-xs-4"></i>
-        <span class="col-xs-8"> Instagram</span>
-      </a>
-      <a class="google-plus" href="https://plus.google.com/">
-        <i class="fa fa-google-plus fa-4x col-xs-4"></i>
-        <span class="col-xs-8"> Google+</span>
-      </a>
+<div class="my-modal row">
+  <div class="col-sm-9 no-pad">
+    <div class='embed-responsive embed-responsive-16by9'>
+      <iframe class="embed-responsive-item" ng-src="{{url}}" frameborder='0' allowfullscreen></iframe>
     </div>
   </div>
-</div>-->
+  <div class="col-xs-12 col-sm-3">
+    <div class="row">
+      <div class="movie-links col-xs-6 col-sm-12">
+        <div class="row">
+          <a ng-click="redirectTo(movie.imdb)" class="imdb col-xs-12" ng-disabled="movie.imdb == ''" href="">
+            <div class="overlay">
+              <h5>Send me to IMDb</h5>
+              <i class="glyphicon glyphicon-new-window"></i>
+            </div>
+          </a>
+          <a ng-click="redirectTo(movie.amazon)" class="amazon col-xs-6" ng-disabled="movie.amazon == ''" href="">
+            <div class="overlay">
+              <h5>Buy/Rent on Amazon</h5>
+              <i class="glyphicon glyphicon-new-window"></i>
+            </div>
+          </a>
+          <a ng-click="redirectTo(movie.itunes)" class="itunes col-xs-6" ng-disabled="movie.itunes == ''" href="">
+            <div class="overlay">
+              <h5>Buy/Rent on iTunes</h5>
+              <i class="glyphicon glyphicon-new-window"></i>
+            </div>
+          </a></div>
+      </div>
+      <div class="movie-info col-xs-6 col-sm-12">
+        <div ng-if="movie.additional">
+          <ul class="list-unstyled">
+            <li>
+              <p><strong>Release: </strong>{{movie.additional.release}}</p>
+            </li>
+            <li>
+              <p><strong>Director: </strong>{{movie.additional.director}}</p>
+            </li>
+            <li>
+              <p><strong>Stars: </strong>{{movie.additional.actors}}</p>
+            </li>
+            <li>
+              <p><strong>Synopsis: </strong>{{movie.additional.story_line}}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-<style>
-  .embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; }
-  .embed-container iframe,
-  .embed-container object,
-  .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-</style>
-<div class='embed-container'>
-  <iframe src='http://www.youtube.com/embed/{{movie.trailer_youtube_url}}?autoplay=1&html5=1' frameborder='0' allowfullscreen></iframe>
+  </div>
 </div>
+

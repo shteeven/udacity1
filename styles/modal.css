@@ -1,69 +1,86 @@
-
-
-.modal-content {
-    box-shadow: none;
-    height: 100%;
-    width: 100%;
-}
-.modal-content .row {
-    height: 100%;
-}
-.modal-content iframe {
-    box-shadow: none;
-    height: 100%;
-}
-.modal-content>.row>* {
-    padding: 0;
-}
-.modal-dialog {
-    height: 315px;
-    width: 660px;
-}
-
-
-.social {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-.social a {
-    display: table;
-    padding: 10px;
-    text-align: left;
-    width: 100%;
+.my-modal {
+    background-color: black;
+    background-size: cover;
     color: #ffffff;
+    border-radius: 0;
 }
-.social span {
-    font-size: 2em;
+/*.movie-wrapper {
+    height: 100%;
+    position: absolute;
+    right: -15px;
+}*/
+/* MOVIE LINKS STYLES */
+.movie-links a {
+    height: 70px;
+    color: #ffffff;
+    background-position: center;
+    background-size: cover;
+    border: rgba(255,255,255, .4) solid 1px;
+    position: relative;
+}
+@media screen and (max-width: 767px) { .movie-links a { height: 110px } }
+/*
+.movie-links a:hover { border: rgba(255,255,255, .4) solid 2px; }
+*/
+
+.movie-links a[disabled="disabled"] {
+    opacity: .3;
+    cursor: not-allowed;
+}
+.movie-links a[disabled="disabled"]:hover { border: none; }
+
+.movie-links .itunes { background-image: url("http://www.kitguru.net/wp-content/uploads/2014/12/Itunes-logo.png"); }
+
+.movie-links .imdb { background-image: url("http://icons.iconarchive.com/icons/danleech/simple/512/imdb-icon.png"); }
+
+.movie-links .amazon { background-image: url("http://www.directdriveopener.com/v/vspfiles/assets/images/Amazon-Logo.png"); }
+
+.movie-links a .overlay {
+    position: absolute;
+    margin-left: -15px;
+    height: 100%;
+    width: 100%;
     text-align: center;
-}
-.social .facebook {
-    background-color: rgb(51, 79, 136);
-}
-.social .facebook:hover {
-     color: rgb(51, 79, 136);
-     background-color: white;
- }
-
-.social .twitter {
-    background-color: rgb(0, 155, 203);
-}
-.social .twitter:hover {
-     color: rgb(0, 155, 203);
-     background-color: white;
- }
-
-.social .instagram {
-    background-color: rgb(163, 116, 90);
-}
-.social .instagram:hover {
-     color: rgb(163, 116, 90);
-     background-color: white;
+    color: black;
+    background-color: rgba(255, 255, 255, .8);
+    opacity: 0;
+    -webkit-transition: opacity .5s ease-out;
+    -moz-transition: opacity .5s ease-out;
+    -ms-transition: opacity .5s ease-out;
+    -o-transition: opacity .5s ease-out;
+    transition: opacity .5s ease-out;
 }
 
-.social .google-plus {
-    background-color: rgb(206, 64, 48);
+.movie-links a:hover .overlay{
+    opacity: 1;
 }
-.social .google-plus:hover {
-     color: rgb(206, 64, 48);
-     background-color: white;
+
+/*.row.no-pad {
+    margin-right:0;
+    margin-left:0;
+}
+.row.no-pad > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}*/
+.no-pad {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+/* MOVIE INFO STYLES */
+.movie-info {
+    padding: 5px;
+    overflow-y: auto;
+    height: 210px;
+}
+@media screen and (min-width: 768px) {
+    .movie-info {
+        height: 120px;
+    }
+}
+@media screen and (min-width: 992px) {
+    .movie-info {
+        height: 240px;
+    }
 }
