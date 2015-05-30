@@ -50,7 +50,9 @@ app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, movie, $sc
   $scope.cancel = function () { $modalInstance.dismiss('cancel'); };
 
   $scope.redirectTo = function(url){
-    $window.open(url, '_blank');
+    if (url !== '') {
+      $window.open(url, '_blank');
+    }
   };
 
 });

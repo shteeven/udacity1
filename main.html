@@ -30,10 +30,7 @@
 
 <!-- Main Page Content -->
 <div class="container ng-cloak">
-  <div ng-click="openModal(movie)"
-       ng-repeat="movie in movies"
-       class="col-md-4 col-sm-6 col-xs-12 movie-tile"
-       ng-class="{'unrevealed': moviesRevealed < $index}">
+  <div ng-click="openModal(movie)" ng-repeat="movie in movies" class="col-md-4 col-sm-6 col-xs-12 movie-tile" ng-class="{'unrevealed': moviesRevealed < $index}">
     <img ng-src="{{movie.poster_image_url}}">
     <h2>{{movie.title}}</h2>
   </div>

@@ -15,19 +15,15 @@
     color: #ffffff;
     background-position: center;
     background-size: cover;
-    border: rgba(255,255,255, .4) solid 1px;
     position: relative;
 }
 @media screen and (max-width: 767px) { .movie-links a { height: 110px } }
-/*
-.movie-links a:hover { border: rgba(255,255,255, .4) solid 2px; }
-*/
+
 
 .movie-links a[disabled="disabled"] {
     opacity: .3;
     cursor: not-allowed;
 }
-.movie-links a[disabled="disabled"]:hover { border: none; }
 
 .movie-links .itunes { background-image: url("http://www.kitguru.net/wp-content/uploads/2014/12/Itunes-logo.png"); }
 
@@ -42,7 +38,7 @@
     width: 100%;
     text-align: center;
     color: black;
-    background-color: rgba(255, 255, 255, .8);
+    background-color: rgba(255, 255, 255, 1);
     opacity: 0;
     -webkit-transition: opacity .5s ease-out;
     -moz-transition: opacity .5s ease-out;
