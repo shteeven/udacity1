@@ -8,9 +8,7 @@ app = angular.module('myApp', ['ui.bootstrap']);
 
 app.controller('MainCtrl', ['$scope', 'movieDataFactory', '$interval', '$modal', function($scope, movieDataFactory, $interval, $modal) {
 
-  movieDataFactory.success(function(data) {
-    $scope.movies = data;
-  });
+  movieDataFactory.success(function(data) { $scope.movies = data; });
 
   $scope.moviesRevealed = -1;
   function revealMovie(){
@@ -21,23 +19,17 @@ app.controller('MainCtrl', ['$scope', 'movieDataFactory', '$interval', '$modal',
   }
   var revealMovieInterval = $interval(revealMovie, 300);
 
+  
+
   function openModal(movie) {
     var modalInstance = $modal.open({
       templateUrl: 'templates/modal.html',
       controller: 'ModalInstanceCtrl',
-      resolve: {
-        movie: function () {
-          return movie;
-        }
-      },
+      resolve: { movie: function () { return movie; } },
       size: 'lg'
-    });
-    modalInstance.result.then( function () {
-      console.log('Modal dismissed at: ' + new Date());
     });
   }
   $scope.openModal = openModal;
-
 }]);
 
 app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, movie, $sce, $window) {
